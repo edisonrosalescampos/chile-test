@@ -49,8 +49,13 @@ function ver_bodegas($data){
 			$resultado = $link->query("SELECT * FROM ejercicios");	
 		}
 	} else{
-		$resultado = $link->query("SELECT * FROM ejercicios WHERE nombre like '%{$data["string"]}%' AND zona like '%{$data["zona"]}%';");
+		if (!empty($data["zona"]) && strtolower($data["zona"]) != "todos") {
+			$resultado = $link->query("SELECT * FROM ejercicios WHERE nombre like '%{$data["string"]}%' AND zona like '%{$data["zona"]}%';");
+		} else {
+			$resultado = $link->query("SELECT * FROM ejercicios WHERE nombre like '%{$data["string"]}%'");	
+		}
 	}
+
 	while($row = mysqli_fetch_array($resultado)){
 		$datos[] = utf8_converter($row);
 	}
