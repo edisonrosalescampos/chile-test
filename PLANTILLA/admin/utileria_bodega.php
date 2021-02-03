@@ -721,7 +721,7 @@ app.controller("controlador_1",['$scope',function($scope){
 						        
 						        	foreach ($zonas_anatomicas as $value) :
 							    	?>
-							    		<option value="<?php echo($value); ?>"><?php echo($value); ?></option>
+							    		<option value="<?php echo(strtolower($value)); ?>"><?php echo($value); ?></option>
 							    	<?php 
 							        endforeach;
 			          	  ?>  	    	
@@ -868,7 +868,7 @@ app.controller("controlador_1",['$scope',function($scope){
 							        
 							    foreach ($zonas_anatomicas as $value) :
 							  ?>
-							   	<option value="<?php echo($value); ?>"><?php echo($value); ?></option>
+							   	<option value="<?php echo(strtolower($value)); ?>"><?php echo($value); ?></option>
 							  <?php 
 							    endforeach;
 			          ?>  	    	
@@ -1074,6 +1074,7 @@ function boton_agregar(){
 
 function boton_editar(linea){
 	window.id_informe=jugadores_scouting[linea]['idEjercicio'];
+	//console.log(jugadores_scouting[linea]['zona']);
 	$('.cuadro_buscar_titulo').eq(0).html(`
 	  <center>
         <table style="color:black; font-family:Arial, Helvetica, sans-serif;">
@@ -1097,7 +1098,7 @@ function boton_editar(linea){
 	$('#ingresar_nombre').val(jugadores_scouting[linea]['nombre']);
 	$('#ingresar_objetivo').val(jugadores_scouting[linea]['objetivo']);
 	$('#ingresar_implementos').val(jugadores_scouting[linea]['implementos']);
-	$('#ingresar_zona').val(jugadores_scouting[linea]['zona']);
+	$('#ingresar_zona').val(jugadores_scouting[linea]['zona'].toLowerCase());
 	$('#ingresar_descripcion').val(jugadores_scouting[linea]['descripcion']);
 	
 	$('#cuadro_de_comentarios').hide(); 
@@ -1309,7 +1310,7 @@ function buscador(){
 				
 				for(var i=0; i < respuesta.length; i++){ 
 					
-					var markup = '<tr class="panel_buscar" style="cursor:pointer; color:#555555; font-size:13px;" id="informe_'+respuesta[i]['idEjercicio']+'"><td onClick="boton_editar('+i+');"><center><b>'+count+'</b></center></td><td onClick="boton_editar('+i+');"><b>'+respuesta[i]['nombre']+'</b></center></td><td onClick="boton_editar('+i+');"><b>'+respuesta[i]['objetivo']+'</b></center></td><td onClick="boton_editar('+i+');"><b>'+respuesta[i]['zona']+'</b></center></td><td onClick="boton_editar('+i+');"><b>'+respuesta[i]['implementos']+'</b></center></td><td style="background-color: #eeeeee;"><center><a class="boton_eliminar" onClick="boton_editar('+i+');"><i class="icon-pencil"></i></a></center></td><td style="background-color: #eeeeee;"><center><a class="boton_eliminar" onClick="boton_eliminar('+respuesta[i]['idEjercicio']+');"><i class="icon-remove"></i></a></center></td></tr>';
+					var markup = '<tr class="panel_buscar" style="cursor:pointer; color:#555555; font-size:13px;" id="informe_'+respuesta[i]['idEjercicio']+'"><td onClick="boton_editar('+i+');"><center><b>'+count+'</b></center></td><td onClick="boton_editar('+i+');"><b>'+respuesta[i]['nombre']+'</b></center></td><td onClick="boton_editar('+i+');"><b>'+respuesta[i]['objetivo']+'</b></center></td><td style="text-transform: capitalize;" onClick="boton_editar('+i+');"><b>'+respuesta[i]['zona']+'</b></center></td><td onClick="boton_editar('+i+');"><b>'+respuesta[i]['implementos']+'</b></center></td><td style="background-color: #eeeeee;"><center><a class="boton_eliminar" onClick="boton_editar('+i+');"><i class="icon-pencil"></i></a></center></td><td style="background-color: #eeeeee;"><center><a class="boton_eliminar" onClick="boton_eliminar('+respuesta[i]['idEjercicio']+');"><i class="icon-remove"></i></a></center></td></tr>';
 					$("#tabla_ver_informes tbody").append(markup);
 					count = count + 1;
 				}

@@ -78,7 +78,7 @@ function guardar_bodega($datos){
 			fecha
 			) VALUES (
 			  '".utf8_decode($datos['ingresar_nombre'])."',
-			  '".utf8_decode($datos['ingresar_zona'])."',
+			  '".utf8_decode(strtolower($datos['ingresar_zona']))."',
 			  '".utf8_decode($datos['ingresar_objetivo'])."',
 			  '".utf8_decode($datos['ingresar_implementos'])."',
 			  '".utf8_decode($datos['ingresar_descripcion'])."',
@@ -90,7 +90,7 @@ function guardar_bodega($datos){
 		$link->query("UPDATE ejercicios SET 
 			nombre = '".utf8_decode(ucwords(strtolower($datos['ingresar_nombre'])))."',
 			objetivo = '".utf8_decode(ucwords(strtolower($datos['ingresar_objetivo'])))."',
-			zona = '".utf8_decode(ucwords(strtolower($datos['ingresar_zona'])))."',
+			zona = '".utf8_decode(strtolower($datos['ingresar_zona']))."',
 			implementos = '".utf8_decode(ucwords(strtolower($datos['ingresar_implementos'])))."',
 			descripcion = '".utf8_decode(ucwords(strtolower($datos['ingresar_descripcion'])))."',
 			nombre_usuario_software = '".utf8_decode(ucwords(strtolower($datos['nombre_usuario_software'])))."',
