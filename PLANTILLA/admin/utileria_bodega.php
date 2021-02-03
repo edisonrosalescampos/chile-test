@@ -393,8 +393,19 @@
 		color: rgba(0, 0, 0, .2);
 		border-radius:2px;
 	}
-	
-	
+	input[type="text"] {
+		width: 100% !important;
+		display: inline-block !important;
+		box-sizing: border-box;
+		height: 20px;
+		padding: 12px;
+		margin: 0px !important;
+	}	
+	* {
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+	}
 	.bootstrap-datetimepicker-widget table td.today:before {
     content: '';
     display: inline-block;
@@ -653,64 +664,75 @@ app.controller("controlador_1",['$scope',function($scope){
 
 <div class="row-fluid cuadro_buscar_buscar" style="margin: 0px; padding:0px; margin-top:30px;">
     <center>
-    	<div style=" width:600px; margin-bottom:10px;">
+    	<div style="width: 100%; margin-bottom:10px;">
         
-       		 <table border="0">
-              <tr class="sin_fondo">
-            	<td style="width:40%;"><input name="buscar_nombre" type="text" style="width:96%; background-color:white; border: 2px solid #555555; border-radius:2px; margin-bottom:0px;" placeholder="Nombre del ejercicio o vacío para ver todos" maxlength="149" id="buscar_nombre" onKeyUp="buscador();" ></td>
-            	<td style="width: 80%; padding-left:40px;">
-            		<div style="padding:0px; margin:0px;">
-          	    <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 110px; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Zonas Anatómicas</a><select name="buscar_zona" type="text" style="width:48%; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149"  id="buscar_zona" onChange="buscador();">
-          	    	<?php 
-          	    		$zonas_anatomicas = [
-          	    			'Todos',
-				            'Cara / Cabeza',
-				            'Hombro derecho',
-				            'Hombro izquierdo',
-				            'Torax',
-				            'Brazo Derecho',
-				            'Brazo izquierdo',
-				            'Antebrazo Derecho',
-				            'Antebrazo izquierdo',
-				            'Abdomen',
-				            'Muñeca Derecha',
-				            'Muñeca izquierda',
-				            'Manos / Dedos Der',
-				            'Manos / Dedos Izq',
-				            'Cadera / Ingle/ Pelvis',
-				            'Muslo Anterior Der',
-				            'Muslo Anterior Izq',
-				            'Rodilla Derecha',
-				            'Rodilla Izquierda',
-				            'Pierna Derecha',
-				            'Pierna Izquierda',
-				            'Tobillo Derecho',
-				            'Tobillo Izquierdo',
-				            'Pie Derecho',
-				            'Pie Izquierdo',
-				            'Cuello / Cervical',
-				            'Dorsales',
-				            'Lumbares',
-				            'Codo Izquierdo',
-				            'Codo Derecho',
-				            'Gluteos',
-				            'Muslo Posterior Izquierdo',
-				            'Muslo Posterior Derecho',
-				            'Pantorrilla Izquierda',
-				            'Pantorrilla Derecha',            
-				        ];
-				        
-				        foreach ($zonas_anatomicas as $value) :
-				    ?>
-				    	<option value="<?php echo($value); ?>"><?php echo($value); ?></option>
-				    <?php 
-				        endforeach;
-          	    	?>  	    	
-					</select></div>
+       		<table border="0" width="100%">
+            <tr class="sin_fondo">
+            	<td style="width:10%;"></td>
+            	<td style="width:25%;">
+            		<input name="buscar_nombre" type="text" style="background-color:white; border: 3px solid #555555; border-radius:2px; margin-bottom:0px; border-radius: 50px; height: 25px; text-align: center;" placeholder="Nombre del Ejercicio" maxlength="149" id="buscar_nombre" onKeyUp="buscador();" >
             	</td>
-                <td style="width:40px; cursor:pointer;"> <button class="boton_refresh" onClick="buscador()" style="margin-left:10px;"><i class="icon-refresh"></i></button></td>
-              </tr>
-            </table>
+            	<td style="width:5%;"></td>
+            	<td style="width:50%;">
+            		<div class="span6">
+            			<a class="btn btn-md btn-primary" style="width: 100%; border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px !important; margin-right:0px !important;  margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Zonas Anatómicas
+            			</a>
+            		</div>
+	            	<div class="span6" style="margin-left: 0px;">
+	          	    <select name="buscar_zona" type="text" style=" border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;width: 90%;" placeholder=""  id="buscar_zona" onChange="buscador();">
+		          	    <?php 
+		          	    	$zonas_anatomicas = [
+		          	    		'Todos',
+						            'Cara / Cabeza',
+						            'Hombro derecho',
+						            'Hombro izquierdo',
+						            'Torax',
+						            'Brazo Derecho',
+						            'Brazo izquierdo',
+						            'Antebrazo Derecho',
+						            'Antebrazo izquierdo',
+						            'Abdomen',
+						            'Muñeca Derecha',
+						            'Muñeca izquierda',
+						            'Manos / Dedos Der',
+						            'Manos / Dedos Izq',
+						            'Cadera / Ingle/ Pelvis',
+						            'Muslo Anterior Der',
+						            'Muslo Anterior Izq',
+						            'Rodilla Derecha',
+						            'Rodilla Izquierda',
+						            'Pierna Derecha',
+						            'Pierna Izquierda',
+						            'Tobillo Derecho',
+						            'Tobillo Izquierdo',
+						            'Pie Derecho',
+						            'Pie Izquierdo',
+						            'Cuello / Cervical',
+						            'Dorsales',
+						            'Lumbares',
+						            'Codo Izquierdo',
+						            'Codo Derecho',
+						            'Gluteos',
+						            'Muslo Posterior Izquierdo',
+						            'Muslo Posterior Derecho',
+						            'Pantorrilla Izquierda',
+						            'Pantorrilla Derecha',            
+						        	];
+						        
+						        	foreach ($zonas_anatomicas as $value) :
+							    	?>
+							    		<option value="<?php echo($value); ?>"><?php echo($value); ?></option>
+							    	<?php 
+							        endforeach;
+			          	  ?>  	    	
+									</select>
+            		</div>
+            	</td>
+              <td style="width:10%; cursor:pointer;"> 
+              	<button class="boton_refresh" onClick="buscador()"><i class="icon-refresh"></i></button>
+              </td>
+            </tr>
+           </table>
           	   
        </div>
                 
@@ -733,16 +755,16 @@ app.controller("controlador_1",['$scope',function($scope){
                   	<th scope="col" style="border-top-left-radius:5px; padding-top:5px; padding-bottom:5px; min-width:25px;"><center>#</center></th>
           			</th>
                     <th scope="col" style="cursor:pointer; padding:0px;">
-                  	<div class="tip-top" data-original-title="Nombre de la bodega" style="width:100%;"><center>NOMBRE</center></div>
+                  	<div class="tip-top" data-original-title="Nombre del Ejercicio" style="width:100%;"><center>NOMBRE</center></div>
                  	</th>
           			<th scope="col" style="cursor:pointer; padding:0px;">
-                  	<div class="tip-top" data-original-title="Nombre del encargado" style="width:100%;"><center>OBJETIVO</center></div>
+                  	<div class="tip-top" data-original-title="Objetivo" style="width:100%;"><center>OBJETIVO</center></div>
                   	</th>
                     <th scope="col" style="cursor:pointer; padding:0px;">
-                  	<div class="tip-top" data-original-title="Ubicación" style="width:100%;"><center>ZONA ANATÓMICA</center></div>
+                  	<div class="tip-top" data-original-title="Zona Anatómica" style="width:100%;"><center>ZONA ANATÓMICA</center></div>
                   	</th>
                   	<th scope="col" style="cursor:pointer; padding:0px;">
-                  	<div class="tip-top" data-original-title="Descripción de la bodega" style="width:100%;"><center>IMPLEMENTOS REQUERIDOS</center></div>
+                  	<div class="tip-top" data-original-title="Implementos Requeridos" style="width:100%;"><center>IMPLEMENTOS REQUERIDOS</center></div>
                   	</th>
                     <th scope="col" style="cursor:pointer; padding:0px;  border-top-right-radius:5px; width:30px;">
                   <th scope="col" style="cursor:pointer; padding:0px;  border-top-right-radius:5px; width:30px;">
@@ -753,18 +775,7 @@ app.controller("controlador_1",['$scope',function($scope){
            <tbody>
                  <!--  AQUI SE INSERTARAN CON JAVASCRIPT -->
           	</tbody>
-             <tfoot>
-             <tr style="background-color:#555555; color:white;">
-                  <th scope="col" style="border-bottom-left-radius:5px; padding-top:5px; padding-bottom:5px;"></th>
-                  <th scope="col" style="cursor:pointer;  padding:15px;"></th> 
-                  <th scope="col" style="cursor:pointer; padding:0px;"></th>
-                  <th scope="col" style="cursor:pointer; padding:0px;"></th>
-                  <th scope="col" style="cursor:pointer; padding:0px;"></th>
-                   <th scope="col" style="cursor:pointer; padding:0px;"></th>
-                  <th scope="col" style="cursor:pointer; padding:0px;  border-bottom-right-radius:5px;"></th>
-                </tr>
-             </tfoot>
-              </table>
+            </table>
            </center>
            
             </div>
@@ -783,136 +794,109 @@ app.controller("controlador_1",['$scope',function($scope){
 
 <div style=" display:none;" id="cuadro_editar">
 
-<div class="row-fluid" style="margin: 0px; margin-bottom:10px; margin-top:37px;">
-<button class="boton_volver" onClick="boton_volver();" style="float:left; margin:0px;"><i class="icon-arrow-left"></i> volver</button>
-</div>
- 
- 
+	<div class="row-fluid" style="margin: 0px; margin-bottom:10px; margin-top:37px;">
+		<button class="boton_volver" onClick="boton_volver();" style="float:left; margin:0px;"><i class="icon-arrow-left"></i> volver</button>
+	</div> 
 
-<div id="seccion_datos" style=" margin-bottom:25px; margin-top:10px;">
-		
- <form method="post" ng-model="formulario_AgregarProveedor" name="formularioAgregarProveedor" id="formularioAgregarProveedor" novalidate>
+	<div id="seccion_datos" style=" margin-bottom:25px; margin-top:10px;">		
+ 		<form method="post" ng-model="formulario_AgregarProveedor" name="formularioAgregarProveedor" id="formularioAgregarProveedor" novalidate>   
+      <div class="row-fluid" style="margin-top:20px;">
+
+				<div class="span12" style="margin: 0px;">
+			    <div class="span9" style="margin: 0px;">
+			      <div class="span5">
+			        <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 100%; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Nombre del Ejercicio</a>
+			      </div>
+			      <div class="span7" style="margin-left: 0px;">
+			        <input name="ingresar_nombre" type="text" style="height: 29px; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149" onKeyUp="chequear_datos();" id="ingresar_nombre">
+			      </div>
+			      <div class="span5" style="margin-left: 0px; margin-top: 20px;">
+			        <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 100%; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Objetivo</a>
+			      </div>
+			      <div class="span7" style="margin-left: 0px; margin-top: 20px;">
+			        <input name="ingresar_objetivo" type="text" style="height: 29px; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149" onKeyDown="chequear_datos();" onKeyUp="chequear_datos();" id="ingresar_objetivo">
+			      </div>
+			      <div class="span5" style="margin-left: 0px; margin-top: 20px;">
+			        <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 100%; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Implementos Requeridos</a>
+			      </div>
+			      <div class="span7" style="margin-left: 0px; margin-top: 20px;">
+			        <input name="ingresar_implementos" type="text" style="height:29px; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149" onKeyDown="chequear_datos();" onKeyUp="chequear_datos();" id="ingresar_implementos">
+			      </div>
+			      <div class="span5" style="margin-left: 0px; margin-top: 20px;">
+			        <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 100%; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Zonas Anatómicas</a>
+			      </div>
+			      <div class="span7" style="margin-left: 0px; margin-top: 20px;">
+			        <select name="ingresar_zona" type="text" style="width:100%; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149"  onChange="chequear_datos();" id="ingresar_zona">
+			        	<option value="">Seleccione un valor...</option>
+			          <?php 
+			          	$zonas_anatomicas = [
+							      'Cara / Cabeza',
+							      'Hombro derecho',
+							      'Hombro izquierdo',
+							      'Torax',
+							      'Brazo Derecho',
+							      'Brazo izquierdo',
+							      'Antebrazo Derecho',
+							      'Antebrazo izquierdo',
+							      'Abdomen',
+							      'Muñeca Derecha',
+							      'Muñeca izquierda',
+							      'Manos / Dedos Der',
+							      'Manos / Dedos Izq',
+							      'Cadera / Ingle/ Pelvis',
+							      'Muslo Anterior Der',
+							      'Muslo Anterior Izq',
+							      'Rodilla Derecha',
+							      'Rodilla Izquierda',
+							      'Pierna Derecha',
+							      'Pierna Izquierda',
+							      'Tobillo Derecho',
+							      'Tobillo Izquierdo',
+							      'Pie Derecho',
+							      'Pie Izquierdo',
+							      'Cuello / Cervical',
+							      'Dorsales',
+							      'Lumbares',
+							      'Codo Izquierdo',
+							      'Codo Derecho',
+							      'Gluteos',
+							      'Muslo Posterior Izquierdo',
+							      'Muslo Posterior Derecho',
+							      'Pantorrilla Izquierda',
+							      'Pantorrilla Derecha',            
+							    ];
+							        
+							    foreach ($zonas_anatomicas as $value) :
+							  ?>
+							   	<option value="<?php echo($value); ?>"><?php echo($value); ?></option>
+							  <?php 
+							    endforeach;
+			          ?>  	    	
+							</select>
+			      </div>
+			      <div class="span5" style="margin-left: 0px; margin-top: 20px;">
+			        <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 100%; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Descripción</a>
+			      </div>
+			      <div class="span7" style="margin-left: 0px; margin-top: 20px;">
+			        <input name="ingresar_descripcion" type="text" style="height:29px; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149" onKeyDown="chequear_datos();" onKeyUp="chequear_datos();" id="ingresar_descripcion">
+			      </div>
+			      <br>
+						<div class="span11"  style=" margin-left: 0px; margin-top: 20px;">	
+							<button style="float: right;" type="submit" ng-disabled="formularioAgregarProveedor.$invalid" class="boton_gestionar_cargos" onClick="boton_guardar();" id="boton_agregar_proveedor"><i class="icon-save"></i> GUARDAR EJERCICIO</button>
+						</div>					
+			    </div>
+			  </div>
+			</div>      
+    </form>
         
-        
-<div class="row-fluid" style="margin-top:20px;">
-
-<div class="span12" style="margin: 0px;">
-       <div class="span6" style="margin: 0px; padding-left:20px;">
-
-       <div class="span12">
-       <center>
-       		<h5 style="color:black; font-family:Arial, Helvetica, sans-serif;" class="cuadro_titulo_agregar_editar">NUEVO EJERCICIO:</h5>
-            </center><br>
-       </div>
-       		<div class="span12">
-           		 <center>
-            	 <div style="padding:0px; margin:0px;">
-          	    <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 110px; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Nombre del Ejercicio</a><input name="ingresar_nombre" type="text" style="width:45%; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149" onKeyUp="chequear_datos();" id="ingresar_nombre"></div>
-                </center>
-            </div>
-            <div class="span12" style="margin-top: 20px;">
-            	 <center>
-            	 <div style="padding:0px; margin:0px;">
-          	    <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 110px; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Objetivo</a><input name="ingresar_objetivo" type="text" style="width:45%; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149" onKeyDown="chequear_datos();" onKeyUp="chequear_datos();" id="ingresar_objetivo"></div>
-                </center>
-            </div>
-            <div class="span12" style="margin-top: 20px;">
-             <center>
-            	 <div style="padding:0px; margin:0px;">
-          	    <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 110px; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Implementos Requeridos</a><input name="ingresar_implementos" type="text" style="width:45%; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149" onKeyDown="chequear_datos();" onKeyUp="chequear_datos();" id="ingresar_implementos"></div>
-                </center>
-            </div>
-            <div class="span12" style="margin-top: 20px;">
-             <center>
-            	 <div style="padding:0px; margin:0px;">
-          	    <a class="btn btn-md btn-primary" style="border-bottom-left-radius:2px; border-top-left-radius:2px; margin-left: 0px; margin-right: 0px; width: 110px; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Zonas Anatómicas</a><select name="ingresar_zona" type="text" style="width:48%; border: 1px solid #28b779; margin-left: 0px; margin-right: 0px; text-transform: capitalize; border-bottom-right-radius:2px; border-top-right-radius:2px; margin-bottom:0px;" placeholder="" maxlength="149"  onChange="chequear_datos();" id="ingresar_zona">
-          	    	<option value="">Seleccione un valor...</option>
-          	    	<?php 
-          	    		$zonas_anatomicas = [
-				            'Cara / Cabeza',
-				            'Hombro derecho',
-				            'Hombro izquierdo',
-				            'Torax',
-				            'Brazo Derecho',
-				            'Brazo izquierdo',
-				            'Antebrazo Derecho',
-				            'Antebrazo izquierdo',
-				            'Abdomen',
-				            'Muñeca Derecha',
-				            'Muñeca izquierda',
-				            'Manos / Dedos Der',
-				            'Manos / Dedos Izq',
-				            'Cadera / Ingle/ Pelvis',
-				            'Muslo Anterior Der',
-				            'Muslo Anterior Izq',
-				            'Rodilla Derecha',
-				            'Rodilla Izquierda',
-				            'Pierna Derecha',
-				            'Pierna Izquierda',
-				            'Tobillo Derecho',
-				            'Tobillo Izquierdo',
-				            'Pie Derecho',
-				            'Pie Izquierdo',
-				            'Cuello / Cervical',
-				            'Dorsales',
-				            'Lumbares',
-				            'Codo Izquierdo',
-				            'Codo Derecho',
-				            'Gluteos',
-				            'Muslo Posterior Izquierdo',
-				            'Muslo Posterior Derecho',
-				            'Pantorrilla Izquierda',
-				            'Pantorrilla Derecha',            
-				        ];
-				        
-				        foreach ($zonas_anatomicas as $value) :
-				    ?>
-				    	<option value="<?php echo($value); ?>"><?php echo($value); ?></option>
-				    <?php 
-				        endforeach;
-          	    	?>  	    	
-					</select></div>
-                </center>
-            </div>
-            <div class="span12" style="margin-top: 20px;">
-            <center>
-           <a class="btn btn-md btn-primary" style="border-top-left-radius:2px; border-top-right-radius:2px; margin-left: 0px; margin-right: 0px; width: 340px; margin-top:0px; background-color:#28b779; font-size: 12px; margin-bottom:0px;"> *Descripción</a><textarea style="margin:0px; padding:0px; height:100px; max-height:100px; min-height:100px; width:364px; max-width:364px; min-width:364px; border: 1px solid #28b779; border-bottom-left-radius:2px; border-bottom-right-radius:2px" name="ingresar_descripcion" maxlength="1999" id="ingresar_descripcion"></textarea>
-          </center>
-            </div>
-          <br>
-			<div class="span12"  style=" margin-top: 20px;">
-            
-            <center>
-				<button type="submit" ng-disabled="formularioAgregarProveedor.$invalid" class="boton_gestionar_cargos" onClick="boton_guardar();" id="boton_agregar_proveedor"><i class="icon-save"></i> GUARDAR EJERCICIO</button>
-			</center>
-			</div>
-		
-       </div>
-       <div class="span6" style="margin: 0px;">
-       		<center>
-				 <img src="../config/bodega.png">
-       		</center>
-       </div>
-</div>
-
-
-
-        
-
-</div>
     
+	</div>
    
-   </form>
-        
-    
-</div>
-   
-<div class="row-fluid" style="margin: 0px; margin-bottom:10px;">
-	<button class="boton_volver" onClick="boton_volver();" style="float:left; margin:0px;"><i class="icon-arrow-left"></i> volver</button>
-    
-</div>
+	<div class="row-fluid" style="margin: 0px; margin-bottom:10px;">
+		<button class="boton_volver" onClick="boton_volver();" style="float:left; margin:0px;"><i class="icon-arrow-left"></i> volver</button>    
+	</div>
 
-       <center><h6 style="color:#28b779;" class="actualizado_por"></h6></center>  
+  <center><h6 style="color:#28b779;" class="actualizado_por"></h6></center>  
         
 </div>
 
@@ -1054,7 +1038,11 @@ app.controller("controlador_1",['$scope',function($scope){
 
 function boton_agregar(){
 	window.id_informe = '';
-	//$('.cuadro_titulo_agregar_editar').html("NUEVA BODEGA:");
+	$('.titulo_principal').eq(0).closest('tr').html(`
+		<td>
+			<h4 style="text-align: text-center;">NUEVO EJERCICIO</h4>
+		</td>
+	`);
 	
 	$('#ingresar_nombre').val('');
 	$('#ingresar_objetivo').val('');
@@ -1093,17 +1081,15 @@ function boton_editar(linea){
 function chequear_datos(){
 	var ER_caracteresConEspacios = /^([a-zA-Z\x7f-\xff](\s[a-zA-Z\x7f-\xff])*)+$/;
 	var ER_alfaNumericoConEspacios=/^([a-zA-Z0-9\x7f-\xff](\s[a-zA-Z0-9\x7f-\xff])*)+$/;
-	var flag = false; 
+	var flag = true; 
 	var ingresar_nombre = $.trim($('#ingresar_nombre').val());
 	var ingresar_objetivo = $.trim($('#ingresar_objetivo').val());
 	var ingresar_implementos = $.trim($('#ingresar_implementos').val());
 	var ingresar_zona = $.trim($('#ingresar_zona').val());
 	var ingresar_descripcion = $.trim($('#ingresar_descripcion').val());
 
-	if (ingresar_nombre == "" || ingresar_objetivo == "" || ingresar_implementos == "" || ingresar_zona == "") {
+	if (ingresar_nombre == "" || ingresar_objetivo == "" || ingresar_implementos == "" || ingresar_zona == "" || ingresar_descripcion == "") {
 		flag = false;
-	} else {
-		flag = true;
 	}
 
 		//alert("El campo nombre no puede quedar en blanco.");
@@ -1162,7 +1148,7 @@ function chequear_datos(){
 		//flag = false; //false: solo si es obligatorio, sacar linea si no es obligatorio el campo
 	}*/
 	
-	if(flag==false){
+	if( flag == false ){
 		$('#boton_agregar_proveedor').prop("disabled", true);
 	}else{
 		$('#boton_agregar_proveedor').prop("disabled", false);
@@ -1270,7 +1256,7 @@ function buscador(){
 		},success: function(respuesta){
 			if(!respuesta.length){ //jugador sin informes
 				$("#tabla_ver_informes tbody").empty();
-				var markup = '<tr class="sin_fondo"><td></td><td style="height:80px; width:10px;"></td><td></td><td><center><h5 style="color:#555555;"><i class="icon-file-alt"></i> Sin Ejercicios</h5></center></td></tr>';
+				var markup = '<tr class="sin_fondo"><td colspan="7"><center><h5 style="color:#555555;"><i class="icon-file-alt"></i> Sin Ejercicios</h5></center></td></tr>';
 				$("#tabla_ver_informes tbody").append(markup);
 				$("#graficos_informes_resumen").hide();
 				$('#cargando_buscar').hide();
