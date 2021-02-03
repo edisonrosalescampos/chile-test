@@ -637,18 +637,12 @@ app.controller("controlador_1",['$scope',function($scope){
     </td>
     <td>
     <div style="padding:0px; margin:0px; margin-top:-5px;">
-    <h3 class="titulo_principal"><center>MODULO KINESIOLOGÍA</center></h3>
-     <center>
-    <!--<b style="font-size:10px; color:black; margin-top:15px;" class="nombre_serie"></b>-->
-    <b class="titulo_pagina" style=" font-size:19px; margin-top:-15px;"><center>"Ejercicios"</center></b>
-    </center>
-                      
+    <h3 class="titulo_principal"><center>Kinesiología "Ejercicios"</center></h3>                   
     </div>
     </td>
   </tr>
 </table>
-<i class="icon-coffee"></i> En esta sección puedes crear, visualizar, modificar y eliminar ejercicios del área "<b><i>utilería</i></b>".
-<br><br>
+<br>
 </center>
 
 <div style="width:100%; background-color:#28b779; height:20px;">

@@ -73,6 +73,7 @@ function guardar_bodega($datos){
 			zona,
 			objetivo,
 			implementos,
+			descripcion,
 			nombre_usuario_software,
 			fecha
 			) VALUES (
@@ -80,6 +81,7 @@ function guardar_bodega($datos){
 			  '".utf8_decode($datos['ingresar_zona'])."',
 			  '".utf8_decode($datos['ingresar_objetivo'])."',
 			  '".utf8_decode($datos['ingresar_implementos'])."',
+			  '".utf8_decode($datos['ingresar_descripcion'])."',
 			  '".utf8_decode(ucwords(strtolower($datos['nombre_usuario_software'])))."',
 			  '".datetime_futbolJoven()."'
 		)");
@@ -90,6 +92,7 @@ function guardar_bodega($datos){
 			objetivo = '".utf8_decode(ucwords(strtolower($datos['ingresar_objetivo'])))."',
 			zona = '".utf8_decode(ucwords(strtolower($datos['ingresar_zona'])))."',
 			implementos = '".utf8_decode(ucwords(strtolower($datos['ingresar_implementos'])))."',
+			descripcion = '".utf8_decode(ucwords(strtolower($datos['ingresar_descripcion'])))."',
 			nombre_usuario_software = '".utf8_decode(ucwords(strtolower($datos['nombre_usuario_software'])))."',
 			fecha = '".datetime_futbolJoven()."' 
 			WHERE idEjercicio like '".$datos['id_informe']."'

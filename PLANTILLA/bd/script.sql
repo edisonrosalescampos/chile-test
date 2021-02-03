@@ -20,6 +20,7 @@ CREATE TABLE `ejercicios` (
  `zona` VARCHAR(255) NOT NULL,
  `objetivo` VARCHAR(255) NOT NULL,
  `implementos` VARCHAR(255) NOT NULL,
+ `descripcion` VARCHAR(255) NOT NULL,
  `nombre_usuario_software` VARCHAR(255) NOT NULL,
  `fecha` DATE,
  PRIMARY KEY(`idEjercicio`)
