@@ -1038,11 +1038,25 @@ app.controller("controlador_1",['$scope',function($scope){
 
 function boton_agregar(){
 	window.id_informe = '';
-	$('.titulo_principal').eq(0).closest('tr').html(`
-		<td>
-			<h4 style="text-align: text-center;">NUEVO EJERCICIO</h4>
-		</td>
+	$('.cuadro_buscar_titulo').eq(0).html(`
+	  <center>
+        <table style="color:black; font-family:Arial, Helvetica, sans-serif;">
+          <tbody>
+          	<tr class="sin_fondo">
+		      <td>
+		        <div style="padding:0px; margin:0px; margin-top:-5px;">
+		          <h4 class="titulo_principal"><center>NUEVO EJERCICIO</center>
+		          </h4>                  
+		        </div>
+              </td>
+            </tr>
+		  </tbody>
+		</table>
+	  <br>
+	  </center>
+	  <div style="width:100%; background-color:#28b779; height:20px;"></div>
 	`);
+	//<h4 style="text-align: text-center;">NUEVO EJERCICIO</h4>
 	
 	$('#ingresar_nombre').val('');
 	$('#ingresar_objetivo').val('');
@@ -1060,7 +1074,25 @@ function boton_agregar(){
 
 function boton_editar(linea){
 	window.id_informe=jugadores_scouting[linea]['idEjercicio'];
-	$('.cuadro_titulo_agregar_editar').html("EDITAR EJERCICIO:");
+	$('.cuadro_buscar_titulo').eq(0).html(`
+	  <center>
+        <table style="color:black; font-family:Arial, Helvetica, sans-serif;">
+          <tbody>
+          	<tr class="sin_fondo">
+		      <td>
+		        <div style="padding:0px; margin:0px; margin-top:-5px;">
+		          <h4 class="titulo_principal"><center>EDITAR EJERCICIO</center>
+		          </h4>                  
+		        </div>
+              </td>
+            </tr>
+		  </tbody>
+		</table>
+	  <br>
+	  </center>
+	  <div style="width:100%; background-color:#28b779; height:20px;"></div>
+	`);
+	//$('.cuadro_titulo_agregar_editar').html("EDITAR EJERCICIO:");
 	
 	$('#ingresar_nombre').val(jugadores_scouting[linea]['nombre']);
 	$('#ingresar_objetivo').val(jugadores_scouting[linea]['objetivo']);
@@ -1301,6 +1333,36 @@ function buscador(){
 
 
 function boton_volver(){
+	$('.cuadro_buscar_titulo').eq(0).html(`
+	  <center>
+        <table style="color:black; font-family:Arial, Helvetica, sans-serif;">
+          <tbody>
+          	<tr class="sin_fondo">
+          	  <td style="padding:12px; padding-top:15px;">
+			    <table>
+			  	  <tbody>
+			  	  	<tr class="sin_fondo">
+			    	  <td>
+			    	    <center><img src="../config/logo_equipo.png" style="width:75px; height:75px; margin-top:5px;"></center>
+			    	  </td>
+			  		</tr>
+				  </tbody>
+				</table>
+    		  </td>
+		      <td>
+		        <div style="padding:0px; margin:0px; margin-top:-5px;">
+		          <h3 class="titulo_principal"><center>Kinesiología "Ejercicios"</center>
+		          </h3>                  
+		        </div>
+              </td>
+            </tr>
+		  </tbody>
+		</table>
+	  <br>
+	  </center>
+	  <div style="width:100%; background-color:#28b779; height:20px;"></div>
+	`);
+
 	$('#cuadro_editar').hide(500);
 	$('.cuadro_buscar_buscar').show(500);
 }
