@@ -1166,21 +1166,25 @@ function boton_eliminar(id){
 
 function eliminar_bodega(){
 	 $('.boton_modal').hide();
-	 $('#mensaje_eliminar_proveedor').html('<h5><i class="icon-spinner icon-spin icon-large"></i> Eliminando ejercicio...</h5><br><img src="../config/remover_archivo.png">');
 	 $.ajax({
 		url: "post/utileria_eliminar_bodega.php",
 		type: "post",
 		dataType: "json",
 		data: {
 			'id': window.id_informe
-		},success: function(respuesta) {
+		},
+		beforeSend: function() {
+			$('#mensaje_eliminar_proveedor').html('<h5><i class="icon-spinner icon-spin icon-large"></i> Eliminando ejercicio...</h5><br><img src="../config/remover_archivo.png">');
+		},
+		success: function(respuesta) {
 			if(respuesta.estatus == 1){//eliminado correctamente
 				$('#mensaje_eliminar_proveedor').html('<h5>Ejercicio eliminado correctamente!</h5>');
-				location.reload();
+				boton_volver();
+				buscador();
 			}else{
 				$('#mensaje_eliminar_proveedor').html("<h5><b style='color:#f26027;'>[Error al eliminar]:</b> contacte al administrador.</h5>");
 			}
-			$('#myModal2').modal('hide');
+			//$('#myModal2').modal('hide');
 		},error: function(){// will fire when timeout is reached
 			$('#mensaje_eliminar_proveedor').html("<h5><b style='color:#f26027;'>[Error al eliminar]:</b> compruebe conexión a internet.</h5>");
     	}, timeout: 10000 // sets timeout to 3 seconds
@@ -1204,7 +1208,7 @@ function guardar_bodega(){
 	var data = $('#formularioAgregarProveedor').serializeArray();
 	data.push({name: 'id_informe',  value: window.id_informe});
 	data.push({name: 'nombre_usuario_software', value: '<?php  echo utf8_encode($_SESSION["nombre_usuario_software"]);?>'});
-	console.log(JSON.stringify(data));
+	//console.log(JSON.stringify(data));
 	
 	$.ajax({
 		url: "post/utileria_guardar_bodega.php",
@@ -1222,10 +1226,12 @@ function guardar_bodega(){
 		success: function(respuesta){
 			if(respuesta.estatus==1){
 			   	$('#mensaje_agregar_DescargarBoleta').html('<h4>Ejercicio ingresado correctamente!</h4>');
-				location.reload();
+				boton_volver();
+				buscador();
 			}else if(respuesta.estatus==2){				
 				$('#mensaje_agregar_DescargarBoleta').html('<h4>Ejercicio editado correctamente!</h4>');
-				location.reload();
+				boton_volver();
+				buscador();
 			}else{
 			  	$('#mensaje_agregar_DescargarBoleta').html('<h5>Error de conexión: los datos no se han podido insertar.</h5><br>');
 			
